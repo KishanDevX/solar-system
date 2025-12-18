@@ -1,3 +1,8 @@
+#solar_space {
+  --orbit-size: 10vmin;
+  --sun-size: 12vmin;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,4 +25,58 @@ body {
   height: 100%;
   width: 100%;
   background: radial-gradient(circle at top, #2b1055, #0b0d2b 40%, #000000 80%);
+}
+
+#sun {
+  aspect-ratio: 1;
+  background: radial-gradient(circle, #fff6a5, #ffb300, #ff8c00);
+  box-shadow: 0 0 20px rgba(255, 200, 0, 0.8), 0 0 60px rgba(255, 140, 0, 0.6),
+    0 0 120px rgba(255, 100, 0, 0.4);
+  height: var(--sun-size);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  border: 1px solid rgba(255, 255, 255, 0.248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+}
+
+.plnt8 {
+  height: calc(var(--orbit-size) * 9);
+}
+
+.plnt7 {
+  height: calc(var(--orbit-size) * 8);
+}
+
+.plnt6 {
+  height: calc(var(--orbit-size) * 7);
+}
+
+.plnt5 {
+  height: calc(var(--orbit-size) * 6);
+}
+
+.plnt4 {
+  height: calc(var(--orbit-size) * 4.5);
+}
+
+.plnt3 {
+  height: calc(var(--orbit-size) * 3.5);
+}
+
+.plnt2 {
+  height: calc(var(--orbit-size) * 2.8);
+}
+
+.plnt1 {
+  height: calc(var(--orbit-size) * 2);
 }
