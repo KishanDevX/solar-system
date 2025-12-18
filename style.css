@@ -1,5 +1,6 @@
 #solar_space {
-  --orbit-size: 10vmin;
+  --orbit-size-ref: 10vmin;
+  --planet-size-ref: 5vmin;
   --sun-size: 12vmin;
 }
 
@@ -24,6 +25,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+  background: #000;
   background: radial-gradient(circle at top, #2b1055, #0b0d2b 40%, #000000 80%);
 }
 
@@ -40,6 +42,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
+#sun::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255, 200, 0, 0.6), transparent 60%);
+  filter: blur(20px);
+  z-index: -1;
+}
+
 .orbit {
   border: 1px solid rgba(255, 255, 255, 0.248);
   border-radius: 50%;
@@ -47,36 +58,132 @@ body {
   justify-content: center;
   align-items: center;
   aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.planet {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.planet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6) 85%
+  );
+}
+
+.mercury {
+  height: calc(var(--planet-size-ref) / 5);
+  background: radial-gradient(circle at 30% 30%, #b5b5b5, #7a7a7a 60%, #4e4e4e);
+  transform: translateX(calc(var(--orbit-size-ref) * 2 / 2));
+}
+
+.venus {
+  height: calc(var(--planet-size-ref) / 2.5);
+  background: radial-gradient(circle at 35% 35%, #ffe7a3, #e6b566 55%, #b8893c);
+  transform: translateX(calc(var(--orbit-size-ref) * 2.8 / 2));
+}
+
+.earth {
+  height: calc(var(--planet-size-ref) / 2);
+  background: radial-gradient(circle at 30% 30%, #83c168, #2a5dab 60%, #0b3d91);
+  transform: translateX(calc(var(--orbit-size-ref) * 3.5 / 2));
+}
+
+.mars {
+  height: calc(var(--planet-size-ref) / 2);
+  background: radial-gradient(circle at 35% 35%, #ff9a7a, #c1440e 60%, #7a2a0a);
+  transform: translateX(calc(var(--orbit-size-ref) * 4.5 / 2));
+}
+
+.jupiter {
+  height: calc(var(--planet-size-ref) * 1.1);
+  background: linear-gradient(
+    to bottom,
+    #d8b58a,
+    #cfa172,
+    #b07c4f,
+    #d8b58a,
+    #cfa172
+  );
+  transform: translateX(calc(var(--orbit-size-ref) * 6 / 2));
+}
+
+.saturn {
+  height: calc(var(--planet-size-ref) * 0.6);
+  z-index: 2;
+  position: relative;
+  background: linear-gradient(to bottom, #f7e3b2, #e2c48a, #c9a45a, #e2c48a);
+  transform: translateX(calc(var(--orbit-size-ref) * 7.3 / 2));
+}
+
+.saturn::before {
+  content: "";
+  position: absolute;
+  inset: -115%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(
+    circle,
+    transparent 0 34%,
+    rgba(137, 135, 135, 0.4) 35% 36%,
+    rgba(235, 168, 81, 0.6) 37% 39%,
+    rgba(255, 255, 255, 0.25) 40% 41%,
+    transparent 42% 100%
+  );
+  filter: blur(0.4px);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+.uranus {
+  height: calc(var(--planet-size-ref) * 0.7);
+  background: radial-gradient(circle at 35% 35%, #e0ffff, #9ad9db 55%, #5bb6c4);
+  transform: translateX(calc(var(--orbit-size-ref) * 8.4 / 2));
+}
+
+.neptune {
+  height: calc(var(--planet-size-ref) * 0.7);
+  background: radial-gradient(circle at 30% 30%, #5fa3ff, #1c4fd8 60%, #0b1f66);
+  transform: translateX(calc(var(--orbit-size-ref) * 9.3 / 2));
 }
 
 .plnt8 {
-  height: calc(var(--orbit-size) * 9);
+  height: calc(var(--orbit-size-ref) * 9.3);
 }
 
 .plnt7 {
-  height: calc(var(--orbit-size) * 8);
+  height: calc(var(--orbit-size-ref) * 8.4);
 }
 
 .plnt6 {
-  height: calc(var(--orbit-size) * 7);
+  height: calc(var(--orbit-size-ref) * 7.3);
 }
 
 .plnt5 {
-  height: calc(var(--orbit-size) * 6);
+  height: calc(var(--orbit-size-ref) * 6);
 }
 
 .plnt4 {
-  height: calc(var(--orbit-size) * 4.5);
+  height: calc(var(--orbit-size-ref) * 4.5);
 }
 
 .plnt3 {
-  height: calc(var(--orbit-size) * 3.5);
+  height: calc(var(--orbit-size-ref) * 3.5);
 }
 
 .plnt2 {
-  height: calc(var(--orbit-size) * 2.8);
+  height: calc(var(--orbit-size-ref) * 2.8);
 }
 
 .plnt1 {
-  height: calc(var(--orbit-size) * 2);
+  height: calc(var(--orbit-size-ref) * 2);
 }
