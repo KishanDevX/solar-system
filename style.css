@@ -2,6 +2,16 @@
   --orbit-size-ref: 10vmin;
   --planet-size-ref: 5vmin;
   --sun-size: 12vmin;
+  --speed-ratio: 1;
+}
+
+@keyframes revolve {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 * {
@@ -62,6 +72,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: revolve linear infinite;
+  height: calc(var(--orbit-size-ref) * var(--radius));
+  animation-duration: var(--speed);
 }
 
 .planet {
@@ -156,34 +169,40 @@ body {
   transform: translateX(calc(var(--orbit-size-ref) * 9.3 / 2));
 }
 
-.plnt8 {
-  height: calc(var(--orbit-size-ref) * 9.3);
-}
-
-.plnt7 {
-  height: calc(var(--orbit-size-ref) * 8.4);
-}
-
+.plnt5,
 .plnt6 {
-  height: calc(var(--orbit-size-ref) * 7.3);
-}
-
-.plnt5 {
-  height: calc(var(--orbit-size-ref) * 6);
-}
-
-.plnt4 {
-  height: calc(var(--orbit-size-ref) * 4.5);
-}
-
-.plnt3 {
-  height: calc(var(--orbit-size-ref) * 3.5);
-}
-
-.plnt2 {
-  height: calc(var(--orbit-size-ref) * 2.8);
+  animation-direction: reverse;
 }
 
 .plnt1 {
-  height: calc(var(--orbit-size-ref) * 2);
+  --radius: 2;
+  --speed: calc(5s / var(--speed-ratio));
+}
+.plnt2 {
+  --radius: 2.8;
+  --speed: calc(8s / var(--speed-ratio));
+}
+.plnt3 {
+  --radius: 3.5;
+  --speed: calc(12s / var(--speed-ratio));
+}
+.plnt4 {
+  --radius: 4.5;
+  --speed: calc(18s / var(--speed-ratio));
+}
+.plnt5 {
+  --radius: 6;
+  --speed: calc(25s / var(--speed-ratio));
+}
+.plnt6 {
+  --radius: 7.3;
+  --speed: calc(35s / var(--speed-ratio));
+}
+.plnt7 {
+  --radius: 8.4;
+  --speed: calc(45s / var(--speed-ratio));
+}
+.plnt8 {
+  --radius: 9.3;
+  --speed: calc(60s / var(--speed-ratio));
 }
